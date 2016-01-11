@@ -6,11 +6,9 @@ USER root
 
 # Installs Jupyter Notebook and IRkernel kernel from the current branch
 # Retrieve recent R binary from CRAN
-RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9 && \
-    echo "deb http://cran.rstudio.com/bin/linux/ubuntu wily/">>/etc/apt/sources.list && \
-    apt-get update -qq && \
-    DEBIAN_FRONTEND=noninteractive apt-get install -yq --force-yes --no-install-recommends \
-        r-base r-base-dev && \
+RUN apt-get update -qq 
+RUN apt-get install -y --force-yes --no-install-recommends \
+        libzmq4-dev r-base r-base-dev && \
         apt-get clean && \
         rm -rf /var/lib/apt/lists/*
 
