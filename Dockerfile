@@ -8,7 +8,7 @@ USER root
 # Retrieve recent R binary from CRAN
 RUN apt-get update -qq 
 RUN apt-get install -y --force-yes --no-install-recommends \
-        libzmq4-dev r-base r-base-dev && \
+        libzmq3-dev libzmq3 r-base r-base-dev && \
         apt-get clean && \
         rm -rf /var/lib/apt/lists/*
 
