@@ -1,4 +1,4 @@
-nstalls Jupyter Notebook and IRkernel kernel from the current branch
+# Installs Jupyter Notebook and IRkernel kernel from the current branch
 
 FROM jupyter/notebook
 
