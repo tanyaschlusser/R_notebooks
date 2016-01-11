@@ -49,9 +49,6 @@ RUN /home/main/anaconda/bin/pip install --upgrade pip
 ENV SHELL /bin/bash
 
 # Installs Jupyter Notebook and IRkernel kernel from the current branch
-FROM jupyter/notebook
-
-MAINTAINER Benjamin Abel <bbig26@gmail.com>
 
 # Retrieve recent R binary from CRAN
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9 && \
