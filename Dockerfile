@@ -8,12 +8,15 @@ USER root
 
 # Retrieve recent R binary from CRAN
 #RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9 && \
-RUN echo "deb http://cran.rstudio.com/bin/linux/ubuntu jessie/">>/etc/apt/sources.list && \
-    apt-get update -qq && \
-    DEBIAN_FRONTEND=noninteractive apt-get install -yq --force-yes --no-install-recommends \
-        r-base r-base-dev && \
-        apt-get clean && \
-        rm -rf /var/lib/apt/lists/*
+#RUN echo "deb http://cran.rstudio.com/bin/linux/ubuntu jessie/">>/etc/apt/sources.list && \
+#    apt-get update -qq && \
+#    DEBIAN_FRONTEND=noninteractive apt-get install -yq --force-yes --no-install-recommends \
+#        r-base r-base-dev && \
+#        apt-get clean && \
+#        rm -rf /var/lib/apt/lists/*
+
+RUN apt-get update -qq
+RUN apt-get install r-base r-base-dev
 
 # Set default CRAN repo
 RUN echo 'options("repos"="http://cran.rstudio.com")' >> /usr/lib/R/etc/Rprofile.site
