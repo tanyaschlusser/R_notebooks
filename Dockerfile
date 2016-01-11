@@ -15,13 +15,13 @@ USER root
 #        apt-get clean && \
 #        rm -rf /var/lib/apt/lists/*
 
-RUN apt-get update -qq
-RUN apt-get install r-base r-base-dev
+RUN apt-get update
+RUN apt-get install -y r-base r-base-dev && apt-get clean && rm -rf /var/lib/apt/lists/*
+
+USER main
 
 # Set default CRAN repo
 RUN echo 'options("repos"="http://cran.rstudio.com")' >> /usr/lib/R/etc/Rprofile.site
 
 # Install IRkernel
 RUN R -e "install.packages(c('igraph', 'rzmq','repr','IRkernel','IRdisplay'), repos = c('http://irkernel.github.io/', getOption('repos')))" -e "IRkernel::installspec()"
-
-USER main
