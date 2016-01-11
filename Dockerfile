@@ -6,6 +6,7 @@ USER root
 
 # Installs Jupyter Notebook and IRkernel kernel from the current branch
 # Retrieve recent R binary from CRAN
+RUN echo "git://anonscm.debian.org/collab-maint/zeromq3.git">>/etc/apt/sources.list
 RUN apt-get update -qq 
 RUN apt-get install -y --force-yes --no-install-recommends \
         libzmq3-dev libzmq3 r-base r-base-dev && \
