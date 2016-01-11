@@ -6,13 +6,8 @@ USER root
 
 # Installs Jupyter Notebook and IRkernel kernel from the current branch
 # Retrieve recent R binary from CRAN
-
-# Needs zeromq -- couldn't get it even though jessie is supposed to
-# have it... use:  http://askubuntu.com/questions/365074/
-#RUN apt-get install software-properties-common python-software-properties
-#RUN add-apt-repository ppa:chris-lea/zeromq
 RUN apt-get update -qq
-RUN apt-get install libzmq3 libzmq-dev libzmq3-dbg
+RUN apt-get install -y libzmq3 libzmq-dev libzmq3-dbg
 RUN apt-get install -y r-base r-base-dev && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Set default CRAN repo
