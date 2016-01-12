@@ -26,7 +26,7 @@ RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9 && \
     echo "deb http://cran.rstudio.com/bin/linux/ubuntu wily/">>/etc/apt/sources.list && \
     apt-get update -qq && \
     apt-get install -yq --force-yes --no-install-recommends \
-        libjpeg8 \
+        libjpeg8-dev \
         r-base \
         r-base-core \
         r-base-dev \
