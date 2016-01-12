@@ -17,6 +17,6 @@ RUN apt-get install -y --force-yes --no-install-recommends \
 RUN echo 'options("repos"="http://cran.rstudio.com")' >> /usr/lib/R/etc/Rprofile.site
 
 # Install IRkernel
-RUN Rscript -e "install.packages(c('igraph', 'rpart.plot', 'vcd', 'rzmq','repr','IRkernel','IRdisplay'), repos = c('http://irkernel.github.io/', getOption('repos')))" -e "IRkernel::installspec(user=FALSE)"
+RUN Rscript -e "install.packages(c('NMF', 'igraph', 'rpart.plot', 'vcd', 'rzmq','repr','IRkernel','IRdisplay'), repos = c('http://irkernel.github.io/', getOption('repos')))" -e "IRkernel::installspec(user=FALSE)"
 
 USER main
