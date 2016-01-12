@@ -18,7 +18,9 @@ RUN apt-get update -qq && \
         texlive-latex-extra \
         zlib1g-dev && \
     apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
+    rm -rf /var/lib/apt/lists/* && \
+    curl -O http://antix.daveserver.info/jessie/pool/main/libj/libjpeg8/libjpeg8_8d1-2_amd64.deb && \
+    dpkg -i libjpeg8_8d1-2_amd64.deb
 
 
 # Retrieve recent R binary from CRAN
