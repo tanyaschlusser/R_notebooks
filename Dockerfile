@@ -7,7 +7,7 @@ USER root
 # Jupyter notebook dependencies
 RUN apt-get update -qq && \
     apt-get install -yq --no-install-recommends \
-        language-pack-en \
+        language-support-en \
         libcurl4-openssl-dev \
         libffi-dev \
         libsqlite3-dev \
