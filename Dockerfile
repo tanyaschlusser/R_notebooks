@@ -6,8 +6,8 @@ USER root
 
 # Installs Jupyter Notebook and IRkernel kernel from the current branch
 # Retrieve recent R binary from CRAN
-RUN apt-get update -qq 
-RUN apt-get install -y --force-yes --no-install-recommends \
+RUN apt-get update -qq  && \
+    apt-get install -y --force-yes --no-install-recommends \
         libzmq3-dev libzmq3 r-base r-base-dev && \
         apt-get clean && \
         rm -rf /var/lib/apt/lists/*
