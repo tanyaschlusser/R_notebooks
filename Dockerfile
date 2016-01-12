@@ -6,8 +6,10 @@ USER root
 
 # Installs Jupyter Notebook and IRkernel kernel from the current branch
 # Retrieve recent R binary from CRAN
-RUN apt-get update -qq  && \
-    apt-get install -y --force-yes --no-install-recommends \
+RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9 && \
+    echo "deb http://cran.rstudio.com/bin/linux/ubuntu wily/">>/etc/apt/sources.list && \
+    apt-get update -qq && \
+    apt-get install -yq --force-yes --no-install-recommends \
         libzmq3-dev libzmq3 r-base r-base-dev && \
         apt-get clean && \
         rm -rf /var/lib/apt/lists/*
@@ -17,6 +19,6 @@ RUN apt-get update -qq  && \
 RUN echo 'options("repos"="http://cran.rstudio.com")' >> /usr/lib/R/etc/Rprofile.site
 
 # Install IRkernel
-RUN Rscript -e "install.packages(c('NMF', 'igraph', 'rpart.plot', 'vcd', 'rzmq','repr','IRkernel','IRdisplay'), repos = c('http://irkernel.github.io/', getOption('repos')))" -e "IRkernel::installspec(user=FALSE)"
+RUN Rscript -e "install.packages(c('igraph', 'rpart.plot', 'vcd', 'rzmq','repr','IRkernel','IRdisplay'), repos = c('http://irkernel.github.io/', getOption('repos')))" -e "IRkernel::installspec(user=FALSE)"
 
 USER main
