@@ -4,7 +4,8 @@
 
 This notebook uses [mybinder][mybinder] to serve live notebooks from
 a GitHub repository. The Dockerfile shows how to add an IRkernel to
-the build.
+the build, and how to add an external library so that it's available
+immediately to users.
 
 
 [mybinder]: http://mybinder.org
